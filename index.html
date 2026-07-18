@@ -1,12 +1,204 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网站</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            padding: 40px 20px;
+            color: #1a1a2e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .page-header p {
+            color: #666;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #e8ecf1;
+        }
+
+        .product-card .info {
+            padding: 18px 20px 22px;
+        }
+
+        .product-card .info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .product-card .info .description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-card .info .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 16px;
+            color: #999;
+        }
+
+        .error-msg {
+            text-align: center;
+            padding: 40px;
+            color: #e74c3c;
+            background: #fef0f0;
+            border-radius: 12px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+            .page-header h1 {
+                font-size: 24px;
+            }
+            .product-card img {
+                height: 180px;
+            }
+            .product-card .info {
+                padding: 14px 16px 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>欢迎来到我的网站！</h1>
-    <p>这是一个部署在 Cloudflare Pages 上的静态网页。</p>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>🛍️ 精选产品</h1>
+            <p>产品数据从 <code>products.json</code> 动态加载</p>
+        </div>
+
+        <div id="productGrid" class="product-grid">
+            <div class="loading">加载中</div>
+        </div>
+    </div>
+
+    <script>
+        (async function loadProducts() {
+            const grid = document.getElementById('productGrid');
+
+            try {
+                const response = await fetch('products.json');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} - 无法加载 products.json`);
+                }
+
+                const products = await response.json();
+
+                if (!Array.isArray(products) || products.length === 0) {
+                    grid.innerHTML = `<div class="error-msg">⚠️ 暂无产品数据，请检查 products.json</div>`;
+                    return;
+                }
+
+                let html = '';
+                for (const p of products) {
+                    const name = p.name || '未命名产品';
+                    const desc = p.description || '暂无描述';
+                    const price = p.price || '询价';
+                    const imgSrc = p.image || '';
+
+                    html += `
+                        <div class="product-card">
+                            <img src="${imgSrc}" alt="${name}" loading="lazy" 
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22260%22 height=%22220%22%3E%3Crect width=%22260%22 height=%22220%22 fill=%22%23e8ecf1%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22 font-family=%22sans-serif%22%3E暂无图片%3C/text%3E%3C/svg%3E'">
+                            <div class="info">
+                                <h3>${escapeHtml(name)}</h3>
+                                <div class="description">${escapeHtml(desc)}</div>
+                                <div class="price">${escapeHtml(price)}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                grid.innerHTML = html;
+
+            } catch (error) {
+                console.error('产品加载失败:', error);
+                grid.innerHTML = `
+                    <div class="error-msg">
+                        ❌ 加载产品数据失败，请检查：<br>
+                        ① products.json 文件是否存在<br>
+                        ② JSON 格式是否正确
+                    </div>
+                `;
+            }
+        })();
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+
 </body>
 </html>
