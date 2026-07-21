@@ -2,40 +2,67 @@
   {
     "id": 1,
     "name": "LX密集型铜母线槽",
+    "name_en": "LX Dense Copper Busway",
     "description": "采用密集型三明治结构，导体纯度高，外壳无磁性，能承受较高的短时耐受电流。",
+    "description_en": "Adopts dense sandwich structure, high purity conductor, non-magnetic enclosure, capable of withstanding high short-time withstand current.",
     "price": "询价",
+    "price_en": "Inquiry",
     "image": "https://picsum.photos/400/300?random=1",
     "specs": {
       "额定电压": "1000V",
       "额定电流": "400-6300A",
       "防护等级": "IP66",
       "材质": "铜导体，铝合金外壳"
+    },
+    "specs_en": {
+      "Rated Voltage": "1000V",
+      "Rated Current": "400-6300A",
+      "Protection Class": "IP66",
+      "Material": "Copper conductor, aluminum alloy enclosure"
     }
   },
   {
     "id": 2,
     "name": "LF浇注式防水母线槽",
+    "name_en": "LF Cast Resin Waterproof Busway",
     "description": "具有防水、防火、防腐、防爆四防功能，防护等级IP68，可在水下正常工作。",
+    "description_en": "Features waterproof, fireproof, anti-corrosion and explosion-proof, IP68 protection, can work underwater.",
     "price": "询价",
+    "price_en": "Inquiry",
     "image": "https://picsum.photos/400/300?random=2",
     "specs": {
       "防护等级": "IP68",
       "工作温度": "-30°C ~ 60°C",
       "材质": "特殊树脂浇注",
       "应用场景": "矿井、隧道、户外"
+    },
+    "specs_en": {
+      "Protection Class": "IP68",
+      "Operating Temperature": "-30°C ~ 60°C",
+      "Material": "Special resin casting",
+      "Applications": "Mines, tunnels, outdoor"
     }
   },
   {
     "id": 3,
     "name": "LK空气型母线槽",
+    "name_en": "LK Air Insulated Busway",
     "description": "结构简单，散热性能好，适用于一般室内配电环境，安装维护方便。",
+    "description_en": "Simple structure, good heat dissipation, suitable for general indoor power distribution, easy installation and maintenance.",
     "price": "询价",
+    "price_en": "Inquiry",
     "image": "https://picsum.photos/400/300?random=3",
     "specs": {
       "额定电压": "690V",
       "额定电流": "400-5000A",
       "防护等级": "IP40",
       "特点": "散热好，维护方便"
+    },
+    "specs_en": {
+      "Rated Voltage": "690V",
+      "Rated Current": "400-5000A",
+      "Protection Class": "IP40",
+      "Features": "Good heat dissipation, easy maintenance"
     }
   }
 ]
