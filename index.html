@@ -17,7 +17,6 @@
             background: #f5f7fa;
             color: #1a1a2e;
             padding-top: 70px;
-            /* 给固定导航栏留空间 */;
         }
 
         /* ===== 导航栏 ===== */
@@ -42,7 +41,6 @@
             font-weight: 700;
             letter-spacing: 1px;
         }
-
         .navbar .logo span {
             color: #4fc3f7;
         }
@@ -62,7 +60,6 @@
             padding: 6px 0;
             border-bottom: 2px solid transparent;
         }
-
         .navbar .nav-links li:hover,
         .navbar .nav-links li.active {
             color: #fff;
@@ -81,9 +78,25 @@
             transition: background 0.2s;
             margin-left: 10px;
         }
-
         .navbar .contact-btn:hover {
             background: #81d4fa;
+        }
+
+        /* 语言切换按钮 */
+        .lang-switch {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-left: 12px;
+        }
+        .lang-switch:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #4fc3f7;
         }
 
         /* ===== 主容器 ===== */
@@ -98,36 +111,27 @@
             text-align: center;
             margin-bottom: 40px;
         }
-
         .page-header h1 {
             font-size: 32px;
             font-weight: 700;
         }
-
         .page-header p {
             color: #666;
             margin-top: 8px;
         }
 
-        /* ===== 页面板块（默认隐藏） ===== */
+        /* ===== 页面板块 ===== */
         .page-section {
             display: none;
             animation: fadeIn 0.35s ease;
         }
-
         .page-section.active {
             display: block;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ===== 产品网格 ===== */
@@ -145,12 +149,10 @@
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
         }
-
         .product-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 12px 36px rgba(0, 0, 0, 0.11);
         }
-
         .product-card img {
             width: 100%;
             height: 220px;
@@ -158,17 +160,14 @@
             display: block;
             background: #e8ecf1;
         }
-
         .product-card .info {
             padding: 18px 20px 22px;
         }
-
         .product-card .info h3 {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 6px;
         }
-
         .product-card .info .description {
             font-size: 14px;
             color: #666;
@@ -179,14 +178,13 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-
         .product-card .info .price {
             font-size: 18px;
             font-weight: 700;
             color: #e74c3c;
         }
 
-        /* ===== 产品详情页 ===== */
+        /* ===== 产品详情 ===== */
         .product-detail {
             background: #fff;
             border-radius: 20px;
@@ -195,7 +193,6 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
         .product-detail img {
             width: 100%;
             max-height: 380px;
@@ -203,44 +200,37 @@
             border-radius: 12px;
             margin-bottom: 24px;
         }
-
         .product-detail h2 {
             font-size: 28px;
             margin-bottom: 8px;
         }
-
         .product-detail .detail-price {
             font-size: 24px;
             font-weight: 700;
             color: #e74c3c;
             margin-bottom: 16px;
         }
-
         .product-detail .detail-desc {
             font-size: 16px;
             color: #444;
             line-height: 1.8;
             margin-bottom: 24px;
         }
-
         .product-detail .specs-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-
         .product-detail .specs-table td {
             padding: 10px 16px;
             border-bottom: 1px solid #eee;
         }
-
         .product-detail .specs-table td:first-child {
             font-weight: 600;
             color: #333;
             width: 35%;
             background: #f8f9fa;
         }
-
         .product-detail .back-link {
             display: inline-block;
             margin-top: 24px;
@@ -249,12 +239,11 @@
             cursor: pointer;
             text-decoration: underline;
         }
-
         .product-detail .back-link:hover {
             color: #4fc3f7;
         }
 
-        /* ===== 公司概况 / 关于我们 / 公司要闻 ===== */
+        /* ===== 内容卡片（公司概况等） ===== */
         .content-card {
             background: #fff;
             border-radius: 20px;
@@ -263,20 +252,17 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
         .content-card h2 {
             font-size: 28px;
             margin-bottom: 20px;
             color: #0b1a33;
         }
-
         .content-card p {
             font-size: 16px;
             line-height: 1.9;
             color: #444;
             margin-bottom: 16px;
         }
-
         .content-card ul {
             padding-left: 24px;
             line-height: 2;
@@ -287,17 +273,14 @@
             padding: 16px 0;
             border-bottom: 1px solid #f0f0f0;
         }
-
         .news-item .date {
             color: #999;
             font-size: 14px;
         }
-
         .news-item h4 {
             font-size: 17px;
             margin: 4px 0 6px;
         }
-
         .news-item p {
             color: #666;
             font-size: 15px;
@@ -309,7 +292,6 @@
             padding: 60px 0;
             color: #999;
         }
-
         .error-msg {
             text-align: center;
             padding: 40px;
@@ -318,7 +300,7 @@
             border-radius: 12px;
         }
 
-        /* ===== 模态框（联系我们弹窗） ===== */
+        /* ===== 模态框（联系我们） ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -331,11 +313,9 @@
             align-items: center;
             z-index: 9999;
         }
-
         .modal-overlay.active {
             display: flex;
         }
-
         .modal {
             background: #fff;
             border-radius: 20px;
@@ -346,7 +326,6 @@
             position: relative;
             animation: fadeIn 0.3s ease;
         }
-
         .modal-close {
             position: absolute;
             top: 14px;
@@ -356,25 +335,20 @@
             border: none;
             cursor: pointer;
             color: #aaa;
-            transition: color 0.2s;
         }
-
         .modal-close:hover {
             color: #333;
         }
-
         .modal h2 {
             font-size: 24px;
             margin-bottom: 6px;
             color: #0b1a33;
         }
-
         .modal .sub {
             color: #888;
             font-size: 14px;
             margin-bottom: 24px;
         }
-
         .modal label {
             display: block;
             font-weight: 600;
@@ -382,11 +356,9 @@
             font-size: 14px;
             color: #333;
         }
-
         .modal label .required {
             color: #e74c3c;
         }
-
         .modal input,
         .modal textarea {
             width: 100%;
@@ -398,19 +370,16 @@
             font-family: inherit;
             transition: border 0.2s;
         }
-
         .modal input:focus,
         .modal textarea:focus {
             outline: none;
             border-color: #4fc3f7;
             box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.15);
         }
-
         .modal textarea {
             resize: vertical;
             min-height: 80px;
         }
-
         .modal .submit-btn {
             width: 100%;
             padding: 12px;
@@ -423,11 +392,9 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
         .modal .submit-btn:hover {
             background: #1a2f4f;
         }
-
         .modal .form-error {
             color: #e74c3c;
             font-size: 13px;
@@ -435,18 +402,15 @@
             margin-bottom: 12px;
             display: none;
         }
-
         .modal .form-success {
             text-align: center;
             padding: 20px 0;
             display: none;
         }
-
         .modal .form-success .check {
             font-size: 52px;
             margin-bottom: 10px;
         }
-
         .modal .form-success h3 {
             color: #0b1a33;
         }
@@ -458,54 +422,58 @@
                 height: 58px;
                 flex-wrap: wrap;
             }
-
             .navbar .logo {
                 font-size: 16px;
             }
-
             .navbar .nav-links {
                 gap: 14px;
                 font-size: 13px;
+                flex-wrap: wrap;
             }
-
             .navbar .nav-links li {
                 font-size: 13px;
             }
-
             .navbar .contact-btn {
                 font-size: 12px;
                 padding: 6px 14px;
             }
-
+            .lang-switch {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
             .container {
                 padding: 20px 12px 40px;
             }
-
             .product-detail {
                 padding: 20px;
             }
-
             .content-card {
                 padding: 24px 18px;
             }
-
             .modal {
                 padding: 28px 20px;
             }
         }
-
         @media (max-width: 500px) {
             body {
-                padding-top: 100px;
+                padding-top: 110px;
             }
             .navbar .nav-links {
-                gap: 8px;
-                flex-wrap: wrap;
-                justify-content: center;
+                gap: 6px;
             }
             .navbar .nav-links li {
                 font-size: 12px;
                 padding: 4px 0;
+            }
+            .navbar .contact-btn {
+                font-size: 11px;
+                padding: 4px 10px;
+                margin-left: 4px;
+            }
+            .lang-switch {
+                font-size: 11px;
+                padding: 3px 8px;
+                margin-left: 4px;
             }
         }
     </style>
@@ -516,208 +484,353 @@
     <nav class="navbar">
         <div class="logo">⚡ 母线<span>槽</span></div>
         <ul class="nav-links">
-            <li class="active" data-page="products">产品</li>
-            <li data-page="company">公司概况</li>
-            <li data-page="news">公司要闻</li>
-            <li data-page="about">关于我们</li>
-            <li><button class="contact-btn" id="contactOpenBtn">📩 联系我们</button></li>
+            <li class="active" data-page="products" data-i18n="nav_products">产品</li>
+            <li data-page="company" data-i18n="nav_company">公司概况</li>
+            <li data-page="news" data-i18n="nav_news">公司要闻</li>
+            <li data-page="about" data-i18n="nav_about">关于我们</li>
+            <li><button class="contact-btn" id="contactOpenBtn" data-i18n="nav_contact">📩 联系我们</button></li>
+            <li><button class="lang-switch" id="langSwitch">EN</button></li>
         </ul>
     </nav>
 
     <!-- ===== 主容器 ===== -->
     <div class="container">
 
-        <!-- ========================================= -->
-        <!-- 板块1：产品列表（默认显示） -->
-        <!-- ========================================= -->
+        <!-- 产品列表 -->
         <div id="page-products" class="page-section active">
             <div class="page-header">
-                <h1>🔌 母线槽产品中心</h1>
-                <p>点击产品卡片查看完整技术参数</p>
+                <h1 data-i18n="products_title">🔌 母线槽产品中心</h1>
+                <p data-i18n="products_subtitle">点击产品卡片查看完整技术参数</p>
             </div>
             <div id="productGrid" class="product-grid">
-                <div class="loading">加载中</div>
+                <div class="loading" data-i18n="loading">加载中</div>
             </div>
         </div>
 
-        <!-- ========================================= -->
-        <!-- 板块2：产品详情（独立页面，由JS控制显示） -->
-        <!-- ========================================= -->
+        <!-- 产品详情 -->
         <div id="page-detail" class="page-section">
-            <div id="productDetailContainer">
-                <!-- 由 JavaScript 动态填充 -->
-            </div>
+            <div id="productDetailContainer"></div>
         </div>
 
-        <!-- ========================================= -->
-        <!-- 板块3：公司概况 -->
-        <!-- ========================================= -->
+        <!-- 公司概况 -->
         <div id="page-company" class="page-section">
-            <div class="content-card">
-                <h2>🏢 公司概况</h2>
-                <p>
-                    我们是一家专注于母线槽研发、生产、销售和服务的高新技术企业，
-                    成立于2005年，总部位于中国电器之都——温州柳市。
-                </p>
-                <p>
-                    公司拥有现代化标准厂房 28000 平方米，员工 300 余人，
-                    其中工程技术研发人员 40 余人。年产母线槽 10 万米以上，
-                    产品远销东南亚、中东、非洲及欧美等 30 多个国家和地区。
-                </p>
-                <p><strong>核心优势：</strong></p>
-                <ul>
-                    <li>全系列产品通过 CCC 认证及 CQC 自愿认证</li>
-                    <li>拥有 20 余项国家实用新型专利</li>
-                    <li>ISO9001、ISO14001、OHSAS18001 三体系认证</li>
-                    <li>产品符合 GB7251、IEC60439 等国内外标准</li>
-                </ul>
+            <div class="content-card" id="companyContent">
+                <!-- 由 JS 根据语言动态填充 -->
             </div>
         </div>
 
-        <!-- ========================================= -->
-        <!-- 板块4：公司要闻 -->
-        <!-- ========================================= -->
+        <!-- 公司要闻 -->
         <div id="page-news" class="page-section">
-            <div class="content-card">
-                <h2>📰 公司要闻</h2>
-
-                <div class="news-item">
-                    <div class="date">2026-06-28</div>
-                    <h4>我司中标新加坡地铁项目母线槽供应标段</h4>
-                    <p>总金额约 1200 万元，产品将用于新加坡地铁环线第六期工程。</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="date">2026-06-15</div>
-                    <h4>全新智能母线槽监测系统正式发布</h4>
-                    <p>支持远程实时监测温度、电流、电压，已在多个数据中心项目中应用。</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="date">2026-05-20</div>
-                    <h4>公司荣获“浙江省专精特新中小企业”称号</h4>
-                    <p>标志着公司在专业化、精细化、特色化、新颖化方面获得省级认可。</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="date">2026-04-10</div>
-                    <h4>2026 年德国汉诺威工业博览会参展回顾</h4>
-                    <p>我司携全系列母线槽产品亮相，与 20 余家国际客户达成初步合作意向。</p>
-                </div>
+            <div class="content-card" id="newsContent">
+                <!-- 由 JS 根据语言动态填充 -->
             </div>
         </div>
 
-        <!-- ========================================= -->
-        <!-- 板块5：关于我们 -->
-        <!-- ========================================= -->
+        <!-- 关于我们 -->
         <div id="page-about" class="page-section">
-            <div class="content-card">
-                <h2>💡 关于我们</h2>
-                <p>
-                    <strong>我们是谁</strong><br>
-                    我们是一家专业从事母线槽及电力传输系统研发、制造、销售与服务的科技型企业，
-                    致力于为全球客户提供安全、高效、智能的电力传输解决方案。
-                </p>
-                <p>
-                    <strong>我们的使命</strong><br>
-                    让电力传输更安全、更智能、更可靠。
-                </p>
-                <p>
-                    <strong>我们的愿景</strong><br>
-                    成为全球领先的母线槽系统解决方案提供商。
-                </p>
-                <p>
-                    <strong>核心价值观</strong><br>
-                    客户第一 · 诚信务实 · 创新卓越 · 合作共赢
-                </p>
-                <p style="margin-top:20px; color:#888; font-size:14px;">
-                    如有任何合作需求，欢迎点击右上角「联系我们」按钮，我们将尽快与您取得联系。
-                </p>
+            <div class="content-card" id="aboutContent">
+                <!-- 由 JS 根据语言动态填充 -->
             </div>
         </div>
 
     </div>
 
-    <!-- ========================================= -->
-    <!-- 模态框：联系我们 -->
-    <!-- ========================================= -->
+    <!-- ===== 联系我们模态框 ===== -->
     <div id="contactModal" class="modal-overlay">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="modal-close" id="contactCloseBtn">&times;</button>
-
-            <!-- 表单区域 -->
             <div id="contactFormArea">
-                <h2>📩 联系我们</h2>
-                <p class="sub">收到信息后我们将在 24 小时内回复</p>
-
+                <h2 data-i18n="contact_title">📩 联系我们</h2>
+                <p class="sub" data-i18n="contact_sub">收到信息后我们将在 24 小时内回复</p>
                 <form id="contactForm" onsubmit="return handleContactSubmit(event)">
-                    <label>姓名 <span class="required">*</span></label>
-                    <input type="text" id="contactName" placeholder="请输入您的姓名" required>
+                    <label><span data-i18n="contact_name">姓名</span> <span class="required">*</span></label>
+                    <input type="text" id="contactName" data-i18n-placeholder="contact_name_ph" placeholder="请输入您的姓名" required>
 
-                    <label>公司名称 <span style="color:#999;font-weight:400;">（选填）</span></label>
-                    <input type="text" id="contactCompany" placeholder="请输入公司名称">
+                    <label><span data-i18n="contact_company">公司名称</span> <span style="color:#999;font-weight:400;">（<span data-i18n="optional">选填</span>）</span></label>
+                    <input type="text" id="contactCompany" data-i18n-placeholder="contact_company_ph" placeholder="请输入公司名称">
 
-                    <label>邮箱 <span class="required">*</span></label>
-                    <input type="email" id="contactEmail" placeholder="请输入您的邮箱地址" required>
+                    <label><span data-i18n="contact_email">邮箱</span> <span class="required">*</span></label>
+                    <input type="email" id="contactEmail" data-i18n-placeholder="contact_email_ph" placeholder="请输入您的邮箱地址" required>
 
-                    <label>留言 <span style="color:#999;font-weight:400;">（选填）</span></label>
-                    <textarea id="contactMessage" placeholder="请输入您的需求或问题..."></textarea>
+                    <label><span data-i18n="contact_message">留言</span> <span style="color:#999;font-weight:400;">（<span data-i18n="optional">选填</span>）</span></label>
+                    <textarea id="contactMessage" data-i18n-placeholder="contact_message_ph" placeholder="请输入您的需求或问题..."></textarea>
 
-                    <div class="form-error" id="formError">请完善所有必填项</div>
-                    <button type="submit" class="submit-btn">提交</button>
+                    <div class="form-error" id="formError" data-i18n="form_error">请完善所有必填项</div>
+                    <button type="submit" class="submit-btn" data-i18n="submit_btn">提交</button>
                 </form>
             </div>
-
-            <!-- 成功提示（提交后显示） -->
             <div id="contactSuccess" class="form-success">
                 <div class="check">✅</div>
-                <h3>提交成功！</h3>
-                <p style="color:#666;margin-top:8px;">我们将在 24 小时内与您取得联系。</p>
-                <button class="submit-btn" style="margin-top:20px; width:auto; padding:10px 36px;" onclick="closeContactModal()">
-                    知道了
-                </button>
+                <h3 data-i18n="success_title">提交成功！</h3>
+                <p style="color:#666;margin-top:8px;" data-i18n="success_msg">我们将在 24 小时内与您取得联系。</p>
+                <button class="submit-btn" style="margin-top:20px; width:auto; padding:10px 36px;" onclick="closeContactModal()" data-i18n="success_btn">知道了</button>
             </div>
         </div>
     </div>
 
-
-    <!-- ========================================= -->
-    <!-- JavaScript -->
-    <!-- ========================================= -->
     <script>
-        // ---------- 1. 产品数据加载 ----------
+        // ======================================================
+        // 1. 语言包（中英文对照）
+        // ======================================================
+        const translations = {
+            zh: {
+                nav_products: '产品',
+                nav_company: '公司概况',
+                nav_news: '公司要闻',
+                nav_about: '关于我们',
+                nav_contact: '📩 联系我们',
+                products_title: '🔌 母线槽产品中心',
+                products_subtitle: '点击产品卡片查看完整技术参数',
+                loading: '加载中',
+                back_link: '← 返回产品列表',
+                specs_title: '📋 技术参数',
+                no_specs: '暂无详细参数',
+                // 公司概况
+                company_title: '🏢 公司概况',
+                company_text1: '我们是一家专注于母线槽研发、生产、销售和服务的高新技术企业，成立于2005年，总部位于中国电器之都——温州柳市。',
+                company_text2: '公司拥有现代化标准厂房 28000 平方米，员工 300 余人，其中工程技术研发人员 40 余人。年产母线槽 10 万米以上，产品远销东南亚、中东、非洲及欧美等 30 多个国家和地区。',
+                company_strong: '核心优势：',
+                company_list: ['全系列产品通过 CCC 认证及 CQC 自愿认证', '拥有 20 余项国家实用新型专利', 'ISO9001、ISO14001、OHSAS18001 三体系认证', '产品符合 GB7251、IEC60439 等国内外标准'],
+                // 公司要闻
+                news_title: '📰 公司要闻',
+                news_items: [
+                    { date: '2026-06-28', title: '我司中标新加坡地铁项目母线槽供应标段', desc: '总金额约 1200 万元，产品将用于新加坡地铁环线第六期工程。' },
+                    { date: '2026-06-15', title: '全新智能母线槽监测系统正式发布', desc: '支持远程实时监测温度、电流、电压，已在多个数据中心项目中应用。' },
+                    { date: '2026-05-20', title: '公司荣获“浙江省专精特新中小企业”称号', desc: '标志着公司在专业化、精细化、特色化、新颖化方面获得省级认可。' },
+                    { date: '2026-04-10', title: '2026 年德国汉诺威工业博览会参展回顾', desc: '我司携全系列母线槽产品亮相，与 20 余家国际客户达成初步合作意向。' }
+                ],
+                // 关于我们
+                about_title: '💡 关于我们',
+                about_who: '我们是谁',
+                about_who_text: '我们是一家专业从事母线槽及电力传输系统研发、制造、销售与服务的科技型企业，致力于为全球客户提供安全、高效、智能的电力传输解决方案。',
+                about_mission: '我们的使命',
+                about_mission_text: '让电力传输更安全、更智能、更可靠。',
+                about_vision: '我们的愿景',
+                about_vision_text: '成为全球领先的母线槽系统解决方案提供商。',
+                about_values: '核心价值观',
+                about_values_list: ['客户第一 · 诚信务实 · 创新卓越 · 合作共赢'],
+                about_footer: '如有任何合作需求，欢迎点击右上角「联系我们」按钮，我们将尽快与您取得联系。',
+                // 联系表单
+                contact_title: '📩 联系我们',
+                contact_sub: '收到信息后我们将在 24 小时内回复',
+                contact_name: '姓名',
+                contact_name_ph: '请输入您的姓名',
+                contact_company: '公司名称',
+                contact_company_ph: '请输入公司名称',
+                contact_email: '邮箱',
+                contact_email_ph: '请输入您的邮箱地址',
+                contact_message: '留言',
+                contact_message_ph: '请输入您的需求或问题...',
+                optional: '选填',
+                form_error: '请填写姓名和邮箱（必填）',
+                submit_btn: '提交',
+                success_title: '提交成功！',
+                success_msg: '我们将在 24 小时内与您取得联系。',
+                success_btn: '知道了'
+            },
+            en: {
+                nav_products: 'Products',
+                nav_company: 'Company',
+                nav_news: 'News',
+                nav_about: 'About Us',
+                nav_contact: '📩 Contact Us',
+                products_title: '🔌 Busway Product Center',
+                products_subtitle: 'Click product card for full technical specs',
+                loading: 'Loading...',
+                back_link: '← Back to Products',
+                specs_title: '📋 Technical Specifications',
+                no_specs: 'No detailed specs available',
+                company_title: '🏢 Company Profile',
+                company_text1: 'We are a high-tech enterprise specializing in R&D, production, sales and service of busway systems. Founded in 2005, headquartered in Liushi, Wenzhou – China\'s electrical capital.',
+                company_text2: 'We have 28,000 sqm modern factory, over 300 employees including 40+ R&D engineers. Annual production exceeds 100,000 meters of busway, exported to 30+ countries in Southeast Asia, Middle East, Africa, Europe and Americas.',
+                company_strong: 'Core Advantages:',
+                company_list: ['Full product range with CCC and CQC certification', 'Over 20 national utility model patents', 'ISO9001, ISO14001, OHSAS18001 certified', 'Compliant with GB7251, IEC60439 and other standards'],
+                news_title: '📰 Company News',
+                news_items: [
+                    { date: '2026-06-28', title: 'Won bid for Singapore MRT busway supply', desc: 'Total value approx. 12 million CNY, for Singapore MRT Circle Line Phase 6.' },
+                    { date: '2026-06-15', title: 'New smart busway monitoring system launched', desc: 'Supports remote real-time monitoring of temperature, current, voltage; applied in several data center projects.' },
+                    { date: '2026-05-20', title: 'Awarded "Zhejiang Provincial Specialized and Sophisticated SME"', desc: 'Recognized for specialization, refinement, differentiation, and innovation at provincial level.' },
+                    { date: '2026-04-10', title: 'Review of Hannover Messe 2026 participation', desc: 'We showcased full busway product range, reached preliminary cooperation intentions with 20+ international clients.' }
+                ],
+                about_title: '💡 About Us',
+                about_who: 'Who We Are',
+                about_who_text: 'We are a technology-driven company dedicated to R&D, manufacturing, sales and service of busway and power transmission systems, committed to providing safe, efficient and intelligent power transmission solutions for global customers.',
+                about_mission: 'Our Mission',
+                about_mission_text: 'Making power transmission safer, smarter and more reliable.',
+                about_vision: 'Our Vision',
+                about_vision_text: 'To become a globally leading provider of busway system solutions.',
+                about_values: 'Core Values',
+                about_values_list: ['Customer First · Integrity · Innovation Excellence · Win-Win Cooperation'],
+                about_footer: 'For any cooperation needs, please click the "Contact Us" button at the top right, and we will get back to you soon.',
+                contact_title: '📩 Contact Us',
+                contact_sub: 'We will reply within 24 hours',
+                contact_name: 'Name',
+                contact_name_ph: 'Enter your name',
+                contact_company: 'Company',
+                contact_company_ph: 'Enter company name',
+                contact_email: 'Email',
+                contact_email_ph: 'Enter your email address',
+                contact_message: 'Message',
+                contact_message_ph: 'Enter your requirements or questions...',
+                optional: 'Optional',
+                form_error: 'Please fill in name and email (required)',
+                submit_btn: 'Submit',
+                success_title: 'Submitted!',
+                success_msg: 'We will contact you within 24 hours.',
+                success_btn: 'Got it'
+            }
+        };
+
+        // ======================================================
+        // 2. 当前语言 & 切换
+        // ======================================================
+        let currentLang = localStorage.getItem('lang') || 'zh';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+            document.getElementById('langSwitch').textContent = (lang === 'zh') ? 'EN' : '中文';
+            // 重新渲染所有内容
+            renderAllContent();
+            // 重新加载产品列表（如果当前在 products 或 detail）
+            const activePage = document.querySelector('.page-section.active');
+            if (activePage) {
+                const id = activePage.id;
+                if (id === 'page-products') {
+                    loadProducts();
+                } else if (id === 'page-detail') {
+                    // 重新渲染当前产品详情
+                    const params = new URLSearchParams(window.location.search);
+                    const idx = params.get('product');
+                    if (idx !== null && allProducts.length > 0) {
+                        renderDetail(allProducts[parseInt(idx)]);
+                    }
+                } else if (id === 'page-company') {
+                    renderCompany();
+                } else if (id === 'page-news') {
+                    renderNews();
+                } else if (id === 'page-about') {
+                    renderAbout();
+                }
+            }
+            // 更新所有带 data-i18n 属性的元素
+            updateStaticTexts(lang);
+            // 更新占位符
+            updatePlaceholders(lang);
+        }
+
+        // 更新静态文本
+        function updateStaticTexts(lang) {
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.textContent = t[key];
+                }
+            });
+        }
+
+        // 更新占位符
+        function updatePlaceholders(lang) {
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key] !== undefined) {
+                    el.placeholder = t[key];
+                }
+            });
+        }
+
+        // 语言切换按钮事件
+        document.getElementById('langSwitch').addEventListener('click', function() {
+            const nextLang = (currentLang === 'zh') ? 'en' : 'zh';
+            setLanguage(nextLang);
+        });
+
+        // ======================================================
+        // 3. 渲染公司概况、新闻、关于我们（多语言）
+        // ======================================================
+        function renderCompany() {
+            const t = translations[currentLang];
+            const container = document.getElementById('companyContent');
+            let listHtml = t.company_list.map(item => `<li>${item}</li>`).join('');
+            container.innerHTML = `
+                <h2>${t.company_title}</h2>
+                <p>${t.company_text1}</p>
+                <p>${t.company_text2}</p>
+                <p><strong>${t.company_strong}</strong></p>
+                <ul>${listHtml}</ul>
+            `;
+        }
+
+        function renderNews() {
+            const t = translations[currentLang];
+            const container = document.getElementById('newsContent');
+            let itemsHtml = t.news_items.map(item => `
+                <div class="news-item">
+                    <div class="date">${item.date}</div>
+                    <h4>${item.title}</h4>
+                    <p>${item.desc}</p>
+                </div>
+            `).join('');
+            container.innerHTML = `
+                <h2>${t.news_title}</h2>
+                ${itemsHtml}
+            `;
+        }
+
+        function renderAbout() {
+            const t = translations[currentLang];
+            const container = document.getElementById('aboutContent');
+            let valuesHtml = t.about_values_list.map(v => `<li>${v}</li>`).join('');
+            container.innerHTML = `
+                <h2>${t.about_title}</h2>
+                <p><strong>${t.about_who}</strong><br>${t.about_who_text}</p>
+                <p><strong>${t.about_mission}</strong><br>${t.about_mission_text}</p>
+                <p><strong>${t.about_vision}</strong><br>${t.about_vision_text}</p>
+                <p><strong>${t.about_values}</strong></p>
+                <ul>${valuesHtml}</ul>
+                <p style="margin-top:20px; color:#888; font-size:14px;">${t.about_footer}</p>
+            `;
+        }
+
+        // ======================================================
+        // 4. 产品加载与渲染（多语言）
+        // ======================================================
         let allProducts = [];
 
         async function loadProducts() {
             const grid = document.getElementById('productGrid');
-            grid.innerHTML = '<div class="loading">加载中</div>';
+            grid.innerHTML = `<div class="loading" data-i18n="loading">${translations[currentLang].loading}</div>`;
             try {
                 const res = await fetch('products.json');
                 if (!res.ok) throw new Error('HTTP ' + res.status);
                 const data = await res.json();
                 if (!Array.isArray(data) || data.length === 0) {
-                    grid.innerHTML = '<div class="error-msg">暂无产品数据</div>';
+                    grid.innerHTML = `<div class="error-msg">${currentLang === 'zh' ? '暂无产品数据' : 'No product data'}</div>`;
                     return;
                 }
                 allProducts = data;
                 renderProductList(data);
             } catch (e) {
-                grid.innerHTML = `<div class="error-msg">加载失败：${e.message}</div>`;
+                grid.innerHTML = `<div class="error-msg">${currentLang === 'zh' ? '加载失败：' : 'Load failed: '}${e.message}</div>`;
             }
         }
 
         function renderProductList(products) {
             const grid = document.getElementById('productGrid');
+            const lang = currentLang;
             let html = '';
             products.forEach((p, i) => {
-                const name = p.name || '未命名';
-                const desc = p.description || '';
-                const price = p.price || '询价';
+                const name = (lang === 'zh') ? p.name : (p.name_en || p.name);
+                const desc = (lang === 'zh') ? p.description : (p.description_en || p.description);
+                const price = (lang === 'zh') ? p.price : (p.price_en || p.price);
                 const img = p.image || '';
                 html += `
                     <div class="product-card" onclick="goToDetail(${i})">
                         <img src="${img}" alt="${name}" loading="lazy"
-                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22260%22 height=%22220%22%3E%3Crect width=%22260%22 height=%22220%22 fill=%22%23e8ecf1%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22 font-family=%22sans-serif%22%3E暂无图片%3C/text%3E%3C/svg%3E'">
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22260%22 height=%22220%22%3E%3Crect width=%22260%22 height=%22220%22 fill=%22%23e8ecf1%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22 font-family=%22sans-serif%22%3E${lang === 'zh' ? '暂无图片' : 'No image'}%3C/text%3E%3C/svg%3E'">
                         <div class="info">
                             <h3>${escapeHtml(name)}</h3>
                             <div class="description">${escapeHtml(desc)}</div>
@@ -729,42 +842,48 @@
             grid.innerHTML = html;
         }
 
-        // ---------- 2. 跳转到产品详情页 ----------
+        // ======================================================
+        // 5. 产品详情（多语言）
+        // ======================================================
         function goToDetail(index) {
             const p = allProducts[index];
             if (!p) return;
-            // 切换页面：隐藏产品列表，显示详情
             showPage('detail');
-            // 更新 URL 参数
             const url = new URL(window.location);
             url.searchParams.set('product', index);
             window.history.pushState({}, '', url);
-
             renderDetail(p);
         }
 
         function renderDetail(p) {
             const container = document.getElementById('productDetailContainer');
+            const lang = currentLang;
+            const t = translations[lang];
+            const name = (lang === 'zh') ? p.name : (p.name_en || p.name);
+            const desc = (lang === 'zh') ? p.description : (p.description_en || p.description);
+            const price = (lang === 'zh') ? p.price : (p.price_en || p.price);
+            const specs = (lang === 'zh') ? p.specs : (p.specs_en || p.specs);
+
             let specsHtml = '';
-            if (p.specs) {
-                specsHtml = '<table class="specs-table">';
-                for (const [key, value] of Object.entries(p.specs)) {
+            if (specs && typeof specs === 'object' && Object.keys(specs).length > 0) {
+                specsHtml = `<table class="specs-table">`;
+                for (const [key, value] of Object.entries(specs)) {
                     specsHtml += `<tr><td>${escapeHtml(key)}</td><td>${escapeHtml(value)}</td></tr>`;
                 }
-                specsHtml += '</table>';
+                specsHtml += `</table>`;
             } else {
-                specsHtml = '<p style="color:#999;">暂无详细参数</p>';
+                specsHtml = `<p style="color:#999;">${t.no_specs}</p>`;
             }
 
             container.innerHTML = `
                 <div class="product-detail">
-                    <img src="${p.image || ''}" alt="${p.name}" onerror="this.style.display='none'">
-                    <h2>${escapeHtml(p.name)}</h2>
-                    <div class="detail-price">${escapeHtml(p.price)}</div>
-                    <div class="detail-desc">${escapeHtml(p.description || '')}</div>
-                    <h3 style="margin-top:20px; margin-bottom:10px;">📋 技术参数</h3>
+                    <img src="${p.image || ''}" alt="${name}" onerror="this.style.display='none'">
+                    <h2>${escapeHtml(name)}</h2>
+                    <div class="detail-price">${escapeHtml(price)}</div>
+                    <div class="detail-desc">${escapeHtml(desc)}</div>
+                    <h3 style="margin-top:20px; margin-bottom:10px;">${t.specs_title}</h3>
                     ${specsHtml}
-                    <div class="back-link" onclick="goBackToProducts()">← 返回产品列表</div>
+                    <div class="back-link" onclick="goBackToProducts()">${t.back_link}</div>
                 </div>
             `;
         }
@@ -774,43 +893,45 @@
             const url = new URL(window.location);
             url.searchParams.delete('product');
             window.history.pushState({}, '', url);
-            // 重新加载产品列表（以防数据变更）
             loadProducts();
         }
 
-        // ---------- 3. 导航切换 ----------
+        // ======================================================
+        // 6. 导航切换 & 显示页面
+        // ======================================================
         function showPage(pageName) {
-            // 隐藏所有页面
             document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
-            // 显示目标页面
             const target = document.getElementById('page-' + pageName);
             if (target) target.classList.add('active');
-
-            // 导航高亮
             document.querySelectorAll('.nav-links li[data-page]').forEach(el => {
                 el.classList.toggle('active', el.dataset.page === pageName);
             });
         }
 
-        // 导航点击事件
         document.querySelectorAll('.nav-links li[data-page]').forEach(el => {
             el.addEventListener('click', function() {
                 const page = this.dataset.page;
-                // 如果当前在详情页，先清除 URL 参数
                 if (page !== 'detail') {
                     const url = new URL(window.location);
                     url.searchParams.delete('product');
                     window.history.pushState({}, '', url);
                 }
                 showPage(page);
-                // 如果是产品页，重新加载数据
                 if (page === 'products') {
                     loadProducts();
+                } else if (page === 'company') {
+                    renderCompany();
+                } else if (page === 'news') {
+                    renderNews();
+                } else if (page === 'about') {
+                    renderAbout();
                 }
             });
         });
 
-        // ---------- 4. 处理 URL 参数（刷新页面时保持详情页） ----------
+        // ======================================================
+        // 7. URL 参数处理（刷新保留详情页）
+        // ======================================================
         function handleUrlOnLoad() {
             const params = new URLSearchParams(window.location.search);
             const productIndex = params.get('product');
@@ -822,20 +943,25 @@
                     return;
                 }
             }
-            // 默认显示产品列表
             showPage('products');
             loadProducts();
+            // 渲染静态内容（公司、新闻、关于）以备切换
+            renderCompany();
+            renderNews();
+            renderAbout();
         }
 
-        // ---------- 5. 联系我们弹窗 ----------
+        // ======================================================
+        // 8. 联系我们弹窗（保持不变）
+        // ======================================================
         function openContactModal() {
             document.getElementById('contactModal').classList.add('active');
             document.body.style.overflow = 'hidden';
-            // 重置表单
             document.getElementById('contactForm').reset();
             document.getElementById('contactFormArea').style.display = 'block';
             document.getElementById('contactSuccess').style.display = 'none';
             document.getElementById('formError').style.display = 'none';
+            // 更新表单里的占位符和标签（语言已经更新）
         }
 
         function closeContactModal() {
@@ -843,7 +969,6 @@
             document.body.style.overflow = '';
         }
 
-        // 打开/关闭按钮
         document.getElementById('contactOpenBtn').addEventListener('click', openContactModal);
         document.getElementById('contactCloseBtn').addEventListener('click', closeContactModal);
         document.getElementById('contactModal').addEventListener('click', function(e) {
@@ -853,41 +978,37 @@
             if (e.key === 'Escape') closeContactModal();
         });
 
-        // ---------- 6. 表单提交 ----------
         function handleContactSubmit(e) {
             e.preventDefault();
             const name = document.getElementById('contactName').value.trim();
             const email = document.getElementById('contactEmail').value.trim();
             const errorEl = document.getElementById('formError');
+            const t = translations[currentLang];
 
-            // 简单验证
             if (!name || !email) {
-                errorEl.textContent = '请填写姓名和邮箱（必填）';
+                errorEl.textContent = t.form_error;
                 errorEl.style.display = 'block';
                 return false;
             }
             if (!email.includes('@') || !email.includes('.')) {
-                errorEl.textContent = '请输入有效的邮箱地址';
+                errorEl.textContent = currentLang === 'zh' ? '请输入有效的邮箱地址' : 'Please enter a valid email';
                 errorEl.style.display = 'block';
                 return false;
             }
 
             errorEl.style.display = 'none';
-
-            // 模拟提交成功（因为纯静态，无后端）
-            // 实际使用时可替换为 fetch 提交到 formspree.io 等第三方服务
             document.getElementById('contactFormArea').style.display = 'none';
             document.getElementById('contactSuccess').style.display = 'block';
 
-            // 可选：把数据打印到控制台（便于调试）
             const company = document.getElementById('contactCompany').value.trim();
             const msg = document.getElementById('contactMessage').value.trim();
-            console.log('📩 联系表单提交：', { name, company, email, msg });
-
+            console.log('📩 Contact form submitted:', { name, company, email, msg });
             return false;
         }
 
-        // ---------- 7. 工具函数 ----------
+        // ======================================================
+        // 9. 工具函数
+        // ======================================================
         function escapeHtml(text) {
             if (!text) return '';
             const div = document.createElement('div');
@@ -895,8 +1016,13 @@
             return div.innerHTML;
         }
 
-        // ---------- 8. 启动 ----------
-        // 先加载产品数据，再处理 URL
+        // ======================================================
+        // 10. 初始化
+        // ======================================================
+        // 先设置语言（从 localStorage 读取）
+        setLanguage(currentLang);
+
+        // 加载产品数据并处理 URL
         loadProducts().then(() => {
             handleUrlOnLoad();
         });
@@ -913,6 +1039,14 @@
                 loadProducts();
             }
         });
+
+        // 保证公司、新闻、关于内容在初始时渲染（但页面隐藏）
+        // 在 handleUrlOnLoad 中已经渲染，但可能因为顺序问题，再确保一次
+        setTimeout(() => {
+            renderCompany();
+            renderNews();
+            renderAbout();
+        }, 100);
     </script>
 
 </body>
