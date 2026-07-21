@@ -3,22 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>母线槽产品展示</title>
+    <title>母线槽 · 电力传输专家</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f5f7fa;
-            padding: 40px 20px;
-            color: #1a1a2e;
+        /* ===== 全局重置 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; }
-        .page-header { text-align: center; margin-bottom: 40px; }
-        .page-header h1 { font-size: 32px; font-weight: 700; }
-        .page-header p { color: #666; margin-top: 8px; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            color: #1a1a2e;
+            padding-top: 70px;
+            /* 给固定导航栏留空间 */;
+        }
 
+        /* ===== 导航栏 ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #0b1a33;
+            color: #fff;
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .navbar .logo span {
+            color: #4fc3f7;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .navbar .nav-links li {
+            cursor: pointer;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            transition: color 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar .nav-links li:hover,
+        .navbar .nav-links li.active {
+            color: #fff;
+            border-bottom-color: #4fc3f7;
+        }
+
+        .navbar .contact-btn {
+            background: #4fc3f7;
+            color: #0b1a33;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-left: 10px;
+        }
+
+        .navbar .contact-btn:hover {
+            background: #81d4fa;
+        }
+
+        /* ===== 主容器 ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        /* ===== 页面标题 ===== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* ===== 页面板块（默认隐藏） ===== */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== 产品网格 ===== */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -29,14 +141,14 @@
             background: #fff;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
         }
 
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.11);
         }
 
         .product-card img {
@@ -69,23 +181,155 @@
         }
 
         .product-card .info .price {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #e74c3c;
         }
 
-        .loading { text-align: center; padding: 60px 0; color: #999; }
-        .error-msg { text-align: center; padding: 40px; color: #e74c3c; background: #fef0f0; border-radius: 12px; }
+        /* ===== 产品详情页 ===== */
+        .product-detail {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-        /* ===== 模态框 (弹窗) ===== */
+        .product-detail img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .product-detail h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .product-detail .detail-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 16px;
+        }
+
+        .product-detail .detail-desc {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .product-detail .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .product-detail .specs-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-detail .specs-table td:first-child {
+            font-weight: 600;
+            color: #333;
+            width: 35%;
+            background: #f8f9fa;
+        }
+
+        .product-detail .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: #0b1a33;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .product-detail .back-link:hover {
+            color: #4fc3f7;
+        }
+
+        /* ===== 公司概况 / 关于我们 / 公司要闻 ===== */
+        .content-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-card h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #0b1a33;
+        }
+
+        .content-card p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .content-card ul {
+            padding-left: 24px;
+            line-height: 2;
+            color: #444;
+        }
+
+        .news-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .news-item .date {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .news-item h4 {
+            font-size: 17px;
+            margin: 4px 0 6px;
+        }
+
+        .news-item p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* ===== 加载 & 错误 ===== */
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+            color: #999;
+        }
+
+        .error-msg {
+            text-align: center;
+            padding: 40px;
+            color: #e74c3c;
+            background: #fef0f0;
+            border-radius: 12px;
+        }
+
+        /* ===== 模态框（联系我们弹窗） ===== */
         .modal-overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
-            z-index: 999;
+            z-index: 9999;
         }
 
         .modal-overlay.active {
@@ -95,129 +339,385 @@
         .modal {
             background: #fff;
             border-radius: 20px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 30px 35px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 480px;
+            width: 92%;
+            padding: 36px 32px 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 14px;
+            right: 18px;
             font-size: 28px;
             background: none;
             border: none;
             cursor: pointer;
-            color: #999;
+            color: #aaa;
+            transition: color 0.2s;
         }
-        .modal-close:hover { color: #333; }
 
-        .modal img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
+        .modal-close:hover {
+            color: #333;
         }
 
         .modal h2 {
             font-size: 24px;
+            margin-bottom: 6px;
+            color: #0b1a33;
+        }
+
+        .modal .sub {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .modal label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .modal label .required {
+            color: #e74c3c;
+        }
+
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+            margin-bottom: 16px;
+            font-family: inherit;
+            transition: border 0.2s;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            outline: none;
+            border-color: #4fc3f7;
+            box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.15);
+        }
+
+        .modal textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0b1a33;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .modal .submit-btn:hover {
+            background: #1a2f4f;
+        }
+
+        .modal .form-error {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: -10px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .modal .form-success {
+            text-align: center;
+            padding: 20px 0;
+            display: none;
+        }
+
+        .modal .form-success .check {
+            font-size: 52px;
             margin-bottom: 10px;
         }
 
-        .modal .modal-price {
-            font-size: 22px;
-            font-weight: 700;
-            color: #e74c3c;
-            margin-bottom: 15px;
+        .modal .form-success h3 {
+            color: #0b1a33;
         }
 
-        .modal .modal-desc {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 20px;
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 16px;
+                height: 58px;
+                flex-wrap: wrap;
+            }
+
+            .navbar .logo {
+                font-size: 16px;
+            }
+
+            .navbar .nav-links {
+                gap: 14px;
+                font-size: 13px;
+            }
+
+            .navbar .nav-links li {
+                font-size: 13px;
+            }
+
+            .navbar .contact-btn {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+
+            .container {
+                padding: 20px 12px 40px;
+            }
+
+            .product-detail {
+                padding: 20px;
+            }
+
+            .content-card {
+                padding: 24px 18px;
+            }
+
+            .modal {
+                padding: 28px 20px;
+            }
         }
 
-        .modal .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        .modal .specs-table td {
-            padding: 8px 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal .specs-table td:first-child {
-            font-weight: 600;
-            color: #333;
-            width: 40%;
-            background: #f8f9fa;
-        }
-
-        .modal .specs-table td:last-child {
-            color: #555;
-        }
-
-        @media (max-width: 600px) {
-            .modal { padding: 20px; }
+        @media (max-width: 500px) {
+            body {
+                padding-top: 100px;
+            }
+            .navbar .nav-links {
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .navbar .nav-links li {
+                font-size: 12px;
+                padding: 4px 0;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="page-header">
-        <h1>🔌 母线槽产品中心</h1>
-        <p>点击产品卡片查看详细技术参数</p>
-    </div>
-    <div id="productGrid" class="product-grid">
-        <div class="loading">加载中</div>
-    </div>
-</div>
+    <!-- ===== 导航栏 ===== -->
+    <nav class="navbar">
+        <div class="logo">⚡ 母线<span>槽</span></div>
+        <ul class="nav-links">
+            <li class="active" data-page="products">产品</li>
+            <li data-page="company">公司概况</li>
+            <li data-page="news">公司要闻</li>
+            <li data-page="about">关于我们</li>
+            <li><button class="contact-btn" id="contactOpenBtn">📩 联系我们</button></li>
+        </ul>
+    </nav>
 
-<!-- 模态框 -->
-<div id="modal" class="modal-overlay" onclick="closeModal(event)">
-    <div class="modal" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-        <div id="modalContent">
-            <!-- 由 JavaScript 动态填充 -->
+    <!-- ===== 主容器 ===== -->
+    <div class="container">
+
+        <!-- ========================================= -->
+        <!-- 板块1：产品列表（默认显示） -->
+        <!-- ========================================= -->
+        <div id="page-products" class="page-section active">
+            <div class="page-header">
+                <h1>🔌 母线槽产品中心</h1>
+                <p>点击产品卡片查看完整技术参数</p>
+            </div>
+            <div id="productGrid" class="product-grid">
+                <div class="loading">加载中</div>
+            </div>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 板块2：产品详情（独立页面，由JS控制显示） -->
+        <!-- ========================================= -->
+        <div id="page-detail" class="page-section">
+            <div id="productDetailContainer">
+                <!-- 由 JavaScript 动态填充 -->
+            </div>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 板块3：公司概况 -->
+        <!-- ========================================= -->
+        <div id="page-company" class="page-section">
+            <div class="content-card">
+                <h2>🏢 公司概况</h2>
+                <p>
+                    我们是一家专注于母线槽研发、生产、销售和服务的高新技术企业，
+                    成立于2005年，总部位于中国电器之都——温州柳市。
+                </p>
+                <p>
+                    公司拥有现代化标准厂房 28000 平方米，员工 300 余人，
+                    其中工程技术研发人员 40 余人。年产母线槽 10 万米以上，
+                    产品远销东南亚、中东、非洲及欧美等 30 多个国家和地区。
+                </p>
+                <p><strong>核心优势：</strong></p>
+                <ul>
+                    <li>全系列产品通过 CCC 认证及 CQC 自愿认证</li>
+                    <li>拥有 20 余项国家实用新型专利</li>
+                    <li>ISO9001、ISO14001、OHSAS18001 三体系认证</li>
+                    <li>产品符合 GB7251、IEC60439 等国内外标准</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 板块4：公司要闻 -->
+        <!-- ========================================= -->
+        <div id="page-news" class="page-section">
+            <div class="content-card">
+                <h2>📰 公司要闻</h2>
+
+                <div class="news-item">
+                    <div class="date">2026-06-28</div>
+                    <h4>我司中标新加坡地铁项目母线槽供应标段</h4>
+                    <p>总金额约 1200 万元，产品将用于新加坡地铁环线第六期工程。</p>
+                </div>
+
+                <div class="news-item">
+                    <div class="date">2026-06-15</div>
+                    <h4>全新智能母线槽监测系统正式发布</h4>
+                    <p>支持远程实时监测温度、电流、电压，已在多个数据中心项目中应用。</p>
+                </div>
+
+                <div class="news-item">
+                    <div class="date">2026-05-20</div>
+                    <h4>公司荣获“浙江省专精特新中小企业”称号</h4>
+                    <p>标志着公司在专业化、精细化、特色化、新颖化方面获得省级认可。</p>
+                </div>
+
+                <div class="news-item">
+                    <div class="date">2026-04-10</div>
+                    <h4>2026 年德国汉诺威工业博览会参展回顾</h4>
+                    <p>我司携全系列母线槽产品亮相，与 20 余家国际客户达成初步合作意向。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- 板块5：关于我们 -->
+        <!-- ========================================= -->
+        <div id="page-about" class="page-section">
+            <div class="content-card">
+                <h2>💡 关于我们</h2>
+                <p>
+                    <strong>我们是谁</strong><br>
+                    我们是一家专业从事母线槽及电力传输系统研发、制造、销售与服务的科技型企业，
+                    致力于为全球客户提供安全、高效、智能的电力传输解决方案。
+                </p>
+                <p>
+                    <strong>我们的使命</strong><br>
+                    让电力传输更安全、更智能、更可靠。
+                </p>
+                <p>
+                    <strong>我们的愿景</strong><br>
+                    成为全球领先的母线槽系统解决方案提供商。
+                </p>
+                <p>
+                    <strong>核心价值观</strong><br>
+                    客户第一 · 诚信务实 · 创新卓越 · 合作共赢
+                </p>
+                <p style="margin-top:20px; color:#888; font-size:14px;">
+                    如有任何合作需求，欢迎点击右上角「联系我们」按钮，我们将尽快与您取得联系。
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- 模态框：联系我们 -->
+    <!-- ========================================= -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" id="contactCloseBtn">&times;</button>
+
+            <!-- 表单区域 -->
+            <div id="contactFormArea">
+                <h2>📩 联系我们</h2>
+                <p class="sub">收到信息后我们将在 24 小时内回复</p>
+
+                <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+                    <label>姓名 <span class="required">*</span></label>
+                    <input type="text" id="contactName" placeholder="请输入您的姓名" required>
+
+                    <label>公司名称 <span style="color:#999;font-weight:400;">（选填）</span></label>
+                    <input type="text" id="contactCompany" placeholder="请输入公司名称">
+
+                    <label>邮箱 <span class="required">*</span></label>
+                    <input type="email" id="contactEmail" placeholder="请输入您的邮箱地址" required>
+
+                    <label>留言 <span style="color:#999;font-weight:400;">（选填）</span></label>
+                    <textarea id="contactMessage" placeholder="请输入您的需求或问题..."></textarea>
+
+                    <div class="form-error" id="formError">请完善所有必填项</div>
+                    <button type="submit" class="submit-btn">提交</button>
+                </form>
+            </div>
+
+            <!-- 成功提示（提交后显示） -->
+            <div id="contactSuccess" class="form-success">
+                <div class="check">✅</div>
+                <h3>提交成功！</h3>
+                <p style="color:#666;margin-top:8px;">我们将在 24 小时内与您取得联系。</p>
+                <button class="submit-btn" style="margin-top:20px; width:auto; padding:10px 36px;" onclick="closeContactModal()">
+                    知道了
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    // ---------- 加载产品列表 ----------
-    (async function loadProducts() {
-        const grid = document.getElementById('productGrid');
-        try {
-            const res = await fetch('products.json');
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            const products = await res.json();
-            if (!Array.isArray(products) || products.length === 0) {
-                grid.innerHTML = '<div class="error-msg">暂无产品</div>';
-                return;
+
+    <!-- ========================================= -->
+    <!-- JavaScript -->
+    <!-- ========================================= -->
+    <script>
+        // ---------- 1. 产品数据加载 ----------
+        let allProducts = [];
+
+        async function loadProducts() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '<div class="loading">加载中</div>';
+            try {
+                const res = await fetch('products.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                if (!Array.isArray(data) || data.length === 0) {
+                    grid.innerHTML = '<div class="error-msg">暂无产品数据</div>';
+                    return;
+                }
+                allProducts = data;
+                renderProductList(data);
+            } catch (e) {
+                grid.innerHTML = `<div class="error-msg">加载失败：${e.message}</div>`;
             }
+        }
+
+        function renderProductList(products) {
+            const grid = document.getElementById('productGrid');
             let html = '';
-            products.forEach((p, index) => {
+            products.forEach((p, i) => {
                 const name = p.name || '未命名';
                 const desc = p.description || '';
                 const price = p.price || '询价';
                 const img = p.image || '';
                 html += `
-                    <div class="product-card" data-index="${index}" onclick="openModal(${index})">
-                        <img src="${img}" alt="${name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22260%22 height=%22220%22%3E%3Crect width=%22260%22 height=%22220%22 fill=%22%23e8ecf1%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22 font-family=%22sans-serif%22%3E暂无图片%3C/text%3E%3C/svg%3E'">
+                    <div class="product-card" onclick="goToDetail(${i})">
+                        <img src="${img}" alt="${name}" loading="lazy"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22260%22 height=%22220%22%3E%3Crect width=%22260%22 height=%22220%22 fill=%22%23e8ecf1%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22 font-family=%22sans-serif%22%3E暂无图片%3C/text%3E%3C/svg%3E'">
                         <div class="info">
                             <h3>${escapeHtml(name)}</h3>
                             <div class="description">${escapeHtml(desc)}</div>
@@ -227,64 +727,193 @@
                 `;
             });
             grid.innerHTML = html;
-            // 保存产品数据供弹窗使用
-            window.__products = products;
-        } catch (e) {
-            grid.innerHTML = `<div class="error-msg">加载失败：${e.message}</div>`;
         }
-    })();
 
-    // ---------- 弹窗逻辑 ----------
-    function openModal(index) {
-        const products = window.__products;
-        if (!products || !products[index]) return;
-        const p = products[index];
-        const modal = document.getElementById('modal');
-        const content = document.getElementById('modalContent');
+        // ---------- 2. 跳转到产品详情页 ----------
+        function goToDetail(index) {
+            const p = allProducts[index];
+            if (!p) return;
+            // 切换页面：隐藏产品列表，显示详情
+            showPage('detail');
+            // 更新 URL 参数
+            const url = new URL(window.location);
+            url.searchParams.set('product', index);
+            window.history.pushState({}, '', url);
 
-        let specsHtml = '';
-        if (p.specs) {
-            specsHtml = '<table class="specs-table">';
-            for (const [key, value] of Object.entries(p.specs)) {
-                specsHtml += `<tr><td>${escapeHtml(key)}</td><td>${escapeHtml(value)}</td></tr>`;
+            renderDetail(p);
+        }
+
+        function renderDetail(p) {
+            const container = document.getElementById('productDetailContainer');
+            let specsHtml = '';
+            if (p.specs) {
+                specsHtml = '<table class="specs-table">';
+                for (const [key, value] of Object.entries(p.specs)) {
+                    specsHtml += `<tr><td>${escapeHtml(key)}</td><td>${escapeHtml(value)}</td></tr>`;
+                }
+                specsHtml += '</table>';
+            } else {
+                specsHtml = '<p style="color:#999;">暂无详细参数</p>';
             }
-            specsHtml += '</table>';
-        } else {
-            specsHtml = '<p style="color:#999;">暂无详细参数</p>';
+
+            container.innerHTML = `
+                <div class="product-detail">
+                    <img src="${p.image || ''}" alt="${p.name}" onerror="this.style.display='none'">
+                    <h2>${escapeHtml(p.name)}</h2>
+                    <div class="detail-price">${escapeHtml(p.price)}</div>
+                    <div class="detail-desc">${escapeHtml(p.description || '')}</div>
+                    <h3 style="margin-top:20px; margin-bottom:10px;">📋 技术参数</h3>
+                    ${specsHtml}
+                    <div class="back-link" onclick="goBackToProducts()">← 返回产品列表</div>
+                </div>
+            `;
         }
 
-        content.innerHTML = `
-            <img src="${p.image || ''}" alt="${p.name}" onerror="this.style.display='none'">
-            <h2>${escapeHtml(p.name)}</h2>
-            <div class="modal-price">${escapeHtml(p.price)}</div>
-            <div class="modal-desc">${escapeHtml(p.description || '')}</div>
-            <h3 style="margin-top:20px; margin-bottom:10px;">📋 技术参数</h3>
-            ${specsHtml}
-        `;
+        function goBackToProducts() {
+            showPage('products');
+            const url = new URL(window.location);
+            url.searchParams.delete('product');
+            window.history.pushState({}, '', url);
+            // 重新加载产品列表（以防数据变更）
+            loadProducts();
+        }
 
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+        // ---------- 3. 导航切换 ----------
+        function showPage(pageName) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            // 显示目标页面
+            const target = document.getElementById('page-' + pageName);
+            if (target) target.classList.add('active');
 
-    function closeModal(event) {
-        if (event && event.target !== event.currentTarget) return;
-        document.getElementById('modal').classList.remove('active');
-        document.body.style.overflow = '';
-    }
+            // 导航高亮
+            document.querySelectorAll('.nav-links li[data-page]').forEach(el => {
+                el.classList.toggle('active', el.dataset.page === pageName);
+            });
+        }
 
-    // 按 ESC 键关闭
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-    });
+        // 导航点击事件
+        document.querySelectorAll('.nav-links li[data-page]').forEach(el => {
+            el.addEventListener('click', function() {
+                const page = this.dataset.page;
+                // 如果当前在详情页，先清除 URL 参数
+                if (page !== 'detail') {
+                    const url = new URL(window.location);
+                    url.searchParams.delete('product');
+                    window.history.pushState({}, '', url);
+                }
+                showPage(page);
+                // 如果是产品页，重新加载数据
+                if (page === 'products') {
+                    loadProducts();
+                }
+            });
+        });
 
-    // ---------- 辅助函数 ----------
-    function escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-</script>
+        // ---------- 4. 处理 URL 参数（刷新页面时保持详情页） ----------
+        function handleUrlOnLoad() {
+            const params = new URLSearchParams(window.location.search);
+            const productIndex = params.get('product');
+            if (productIndex !== null && allProducts.length > 0) {
+                const idx = parseInt(productIndex);
+                if (allProducts[idx]) {
+                    showPage('detail');
+                    renderDetail(allProducts[idx]);
+                    return;
+                }
+            }
+            // 默认显示产品列表
+            showPage('products');
+            loadProducts();
+        }
+
+        // ---------- 5. 联系我们弹窗 ----------
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // 重置表单
+            document.getElementById('contactForm').reset();
+            document.getElementById('contactFormArea').style.display = 'block';
+            document.getElementById('contactSuccess').style.display = 'none';
+            document.getElementById('formError').style.display = 'none';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 打开/关闭按钮
+        document.getElementById('contactOpenBtn').addEventListener('click', openContactModal);
+        document.getElementById('contactCloseBtn').addEventListener('click', closeContactModal);
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeContactModal();
+        });
+
+        // ---------- 6. 表单提交 ----------
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const errorEl = document.getElementById('formError');
+
+            // 简单验证
+            if (!name || !email) {
+                errorEl.textContent = '请填写姓名和邮箱（必填）';
+                errorEl.style.display = 'block';
+                return false;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                errorEl.textContent = '请输入有效的邮箱地址';
+                errorEl.style.display = 'block';
+                return false;
+            }
+
+            errorEl.style.display = 'none';
+
+            // 模拟提交成功（因为纯静态，无后端）
+            // 实际使用时可替换为 fetch 提交到 formspree.io 等第三方服务
+            document.getElementById('contactFormArea').style.display = 'none';
+            document.getElementById('contactSuccess').style.display = 'block';
+
+            // 可选：把数据打印到控制台（便于调试）
+            const company = document.getElementById('contactCompany').value.trim();
+            const msg = document.getElementById('contactMessage').value.trim();
+            console.log('📩 联系表单提交：', { name, company, email, msg });
+
+            return false;
+        }
+
+        // ---------- 7. 工具函数 ----------
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ---------- 8. 启动 ----------
+        // 先加载产品数据，再处理 URL
+        loadProducts().then(() => {
+            handleUrlOnLoad();
+        });
+
+        // 监听浏览器回退/前进
+        window.addEventListener('popstate', function() {
+            const params = new URLSearchParams(window.location.search);
+            const idx = params.get('product');
+            if (idx !== null && allProducts[parseInt(idx)]) {
+                showPage('detail');
+                renderDetail(allProducts[parseInt(idx)]);
+            } else {
+                showPage('products');
+                loadProducts();
+            }
+        });
+    </script>
 
 </body>
 </html>
