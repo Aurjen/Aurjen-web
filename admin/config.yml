@@ -1,7 +1,7 @@
 backend:
-  name: github
-  repo: Aurjen/Aurjen-web # 请替换为你的 GitHub 仓库地址
-  branch: main # 指定你的仓库主分支
+  name: git-gateway
+  branch: main
+  repo: Aurjen/Aurjen-web
 
 # 这些设置会让后台界面更友好
 local_backend: true
