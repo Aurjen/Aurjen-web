@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: Aurjen/Aurjen-web # 请替换为你的 GitHub 仓库地址
+  branch: main # 指定你的仓库主分支
+
+# 这些设置会让后台界面更友好
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: "images/uploads" # 上传的图片将存放在此
+public_folder: "/images/uploads"
+
+# 定义网站内容的“模型”(Collections)
+collections:
+  # 1. 产品集合 (对应 products.json)
+  - name: "products"
+    label: "产品"
+    folder: "" # 因为 products.json 在根目录，所以留空
+    file: "products.json" # 指定要编辑的文件
+    create: false # 不允许直接创建新文件 (因为我们是编辑一个固定的 JSON 文件)
+    editor:
+      preview: false
+    fields:
+      - label: "产品列表"
+        name: "body"
+        widget: "list"
+        fields:
+          - { label: "产品ID", name: "id", widget: "number", default: 1 }
+          - { label: "产品名称 (中文)", name: "name", widget: "string" }
+          - { label: "产品名称 (英文)", name: "name_en", widget: "string" }
+          - { label: "产品描述 (中文)", name: "description", widget: "text" }
+          - { label: "产品描述 (英文)", name: "description_en", widget: "text" }
+          - { label: "价格 (中文)", name: "price", widget: "string", default: "询价" }
+          - { label: "价格 (英文)", name: "price_en", widget: "string", default: "Inquiry" }
+          - { label: "产品图片", name: "image", widget: "image", default: "https://picsum.photos/400/300?random=1" }
+          - label: "技术参数 (中文)"
+            name: "specs"
+            widget: "object"
+            fields:
+              - { label: "额定电压", name: "额定电压", widget: "string" }
+              - { label: "额定电流", name: "额定电流", widget: "string" }
+              - { label: "防护等级", name: "防护等级", widget: "string" }
+              - { label: "材质", name: "材质", widget: "string" }
+          - label: "技术参数 (英文)"
+            name: "specs_en"
+            widget: "object"
+            fields:
+              - { label: "Rated Voltage", name: "Rated Voltage", widget: "string" }
+              - { label: "Rated Current", name: "Rated Current", widget: "string" }
+              - { label: "Protection Class", name: "Protection Class", widget: "string" }
+              - { label: "Material", name: "Material", widget: "string" }
